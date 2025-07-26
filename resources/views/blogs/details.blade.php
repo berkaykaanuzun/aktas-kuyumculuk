@@ -62,115 +62,75 @@
                         value=""
                         name="s"
                         class="input-search s"
-                        placeholder="Search..." />
-                    <div class="content-menu_search">
-                        <label>Suggested</label>
-                        <ul id="menu_search" class="menu">
-                            <li><a href="#">Earrings</a></li>
-                            <li><a href="#">Necklaces</a></li>
-                            <li><a href="#">Bracelets</a></li>
-                            <li><a href="#">Jewelry Box</a></li>
-                        </ul>
-                    </div>
+                        placeholder="Ara..." />
                 </div>
             </form>
         </div>
     </div>
 
-    <!-- Wishlist -->
-    <div class="wishlist-popup">
-        <div class="wishlist-popup-inner">
-            <div class="wishlist-popup-content">
-                <div class="wishlist-popup-content-top">
-                    <span class="wishlist-name">Wishlist</span>
-                    <span class="wishlist-count-wrapper"><span class="wishlist-count">2</span></span>
-                    <span class="wishlist-popup-close"></span>
-                </div>
-                <div class="wishlist-popup-content-mid">
-                    <table class="wishlist-items">
-                        <tbody>
-                            <tr class="wishlist-item">
-                                <td class="wishlist-item-remove"><span></span></td>
-                                <td class="wishlist-item-image">
-                                    <a href="urun-detay.html">
-                                        <img
-                                            width="600"
-                                            height="600"
-                                            src="media/product/3.jpg"
-                                            alt="" />
-                                    </a>
-                                </td>
-                                <td class="wishlist-item-info">
-                                    <div class="wishlist-item-name">
-                                        <a href="urun-detay.html">Twin Hoops</a>
-                                    </div>
-                                    <div class="wishlist-item-price">
-                                        <span>$150.00</span>
-                                    </div>
-                                    <div class="wishlist-item-time">June 4, 2023</div>
-                                </td>
-                                <td class="wishlist-item-actions">
-                                    <div class="wishlist-item-stock">In stock</div>
-                                    <div class="wishlist-item-add">
-                                        <div data-title="Add to cart">
-                                            <a rel="nofollow" href="#">Add to cart</a>
+
+    <!-- Quickview -->
+    <div class="quickview-popup">
+        <div id="quickview-container">
+            <div class="quickview-container">
+                <a href="#" class="quickview-close"></a>
+                <div class="quickview-notices-wrapper"></div>
+                <div class="product single-product product-type-simple">
+                    <div class="product-detail">
+                        <div class="row">
+                            <div class="img-quickview">
+                                <div class="product-images-slider">
+                                    <div id="quickview-slick-carousel">
+                                        <div class="images">
+                                            <div class="scroll-image">
+                                                <div class="slick-wrap">
+                                                    <div
+                                                        class="slick-sliders image-additional"
+                                                        data-dots="true"
+                                                        data-columns4="1"
+                                                        data-columns3="1"
+                                                        data-columns2="1"
+                                                        data-columns1="1"
+                                                        data-columns="1"
+                                                        data-nav="true">
+                                                        <div class="img-thumbnail slick-slide">
+                                                            <a
+                                                                href="media/product/3.jpg"
+                                                                class="image-scroll"
+                                                                title="">
+                                                                <img
+                                                                    width="900"
+                                                                    height="900"
+                                                                    src="media/product/3.jpg"
+                                                                    alt="" />
+                                                            </a>
+                                                        </div>
+                                                        <div class="img-thumbnail slick-slide">
+                                                            <a
+                                                                href="media/product/3-2.jpg"
+                                                                class="image-scroll"
+                                                                title="">
+                                                                <img
+                                                                    width="900"
+                                                                    height="900"
+                                                                    src="media/product/3-2.jpg"
+                                                                    alt="" />
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </td>
-                            </tr>
-                            <tr class="wishlist-item">
-                                <td class="wishlist-item-remove"><span></span></td>
-                                <td class="wishlist-item-image">
-                                    <a href="urun-detay.html">
-                                        <img
-                                            width="600"
-                                            height="600"
-                                            src="media/product/4.jpg"
-                                            alt="" />
-                                    </a>
-                                </td>
-                                <td class="wishlist-item-info">
-                                    <div class="wishlist-item-name">
-                                        <a href="urun-detay.html">Yilver And Turquoise Earrings</a>
-                                    </div>
-                                    <div class="wishlist-item-price">
-                                        <del aria-hidden="true"><span>$150.00</span></del>
-                                        <ins><span>$100.00</span></ins>
-                                    </div>
-                                    <div class="wishlist-item-time">June 4, 2023</div>
-                                </td>
-                                <td class="wishlist-item-actions">
-                                    <div class="wishlist-item-stock">In stock</div>
-                                    <div class="wishlist-item-add">
-                                        <div data-title="Add to cart">
-                                            <a rel="nofollow" href="#">Add to cart</a>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="wishlist-popup-content-bot">
-                    <div class="wishlist-popup-content-bot-inner">
-                        <a class="wishlist-page" href="shop-wishlist.html">
-                            Open wishlist page
-                        </a>
-                        <span class="wishlist-continue" data-url="">
-                            Continue shopping
-                        </span>
-                    </div>
-                    <div class="wishlist-notice wishlist-notice-show">
-                        Added to the wishlist!
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+                <div class="clearfix"></div>
             </div>
         </div>
     </div>
-
-
-
-
 
     <!-- Page Loader -->
     <div class="page-preloader">
@@ -195,5 +155,5 @@
     <script src="assets/js/app.js"></script>
 </body>
 @endsection
-</html>
 
+</html>

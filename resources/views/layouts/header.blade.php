@@ -19,41 +19,13 @@
                                 <img
                                     width="400"
                                     height="79"
-                                    src="{{ asset('media/logo-dark.png') }}"
-                                    alt="Aktaş Kuyumculuk – Kaliteli Takı ve Mücevher" />
+                                    src="media/logo-dark.png"
+                                    alt="Aktaş Kuyumculuk" />
                             </a>
                         </div>
                     </div>
                     <div
                         class="col-xl-4 col-lg-4 col-md-4 col-sm-3 col-3 header-right">
-                        <div class="mojuri-topcart dropdown">
-                            <div class="dropdown mini-cart top-cart">
-                                <div class="remove-cart-shadow"></div>
-                                <a
-                                    class="dropdown-toggle cart-icon"
-                                    href="#"
-                                    role="button"
-                                    data-toggle="dropdown"
-                                    aria-haspopup="true"
-                                    aria-expanded="false">
-                                    <div class="icons-cart">
-                                        <i class="icon-large-paper-bag"></i><span class="cart-count">2</span>
-                                    </div>
-                                </a>
-                                <div class="dropdown-menu cart-popup">
-                                    <div class="cart-empty-wrap">
-                                        <ul class="cart-list">
-                                            <li class="empty">
-                                                <span>No products in the cart.</span>
-                                                <a class="go-shop" href="shop-grid-left.html">GO TO SHOP<i
-                                                        aria-hidden="true"
-                                                        class="arrow_right"></i></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -98,7 +70,7 @@
                                     <img
                                         width="400"
                                         height="140"
-                                        src="{{ asset('media/logo.png') }}"
+                                        src="{{ asset('media/logo-dark.png') }}"
                                         alt="Aktaş Kuyumculuk – Kaliteli Takı ve Mücevher" />
                                 </a>
                             </div>
@@ -119,11 +91,11 @@
                                             <a href="{{ route('products') }}"><span class="menu-item-text">ÜRÜNLER</span></a>
                                             <ul class="sub-menu">
                                                 @php
-                                                    try {
-                                                        $categories = \App\ProductCategory::orderBy('name')->get();
-                                                    } catch(Exception $e) {
-                                                        $categories = collect([]);
-                                                    }
+                                                try {
+                                                $categories = \App\ProductCategory::orderBy('name')->get();
+                                                } catch(Exception $e) {
+                                                $categories = collect([]);
+                                                }
                                                 @endphp
                                                 @foreach($categories as $category)
                                                 <li>
@@ -136,11 +108,11 @@
                                             <a href="{{ route('blogs') }}"><span class="menu-item-text">BLOG & HABERLER</span></a>
                                             <ul class="sub-menu">
                                                 @php
-                                                    try {
-                                                        $blogs = \App\Blog::orderBy('created_at', 'desc')->take(5)->get();
-                                                    } catch(Exception $e) {
-                                                        $blogs = collect([]);
-                                                    }
+                                                try {
+                                                $blogs = \App\Blog::orderBy('created_at', 'desc')->take(5)->get();
+                                                } catch(Exception $e) {
+                                                $blogs = collect([]);
+                                                }
                                                 @endphp
                                                 @foreach($blogs as $blog)
                                                 <li>

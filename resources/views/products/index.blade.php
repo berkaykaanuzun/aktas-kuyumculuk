@@ -13,11 +13,19 @@
                     <div id="title" class="page-title">
                         <div class="section-container">
                             <div class="content-title-heading">
-                                <h1 class="text-title-heading">Ürünler</h1>
+                                <h1 class="text-title-heading">
+                                    @if($search_query)
+                                        "{{ $search_query }}" için arama sonuçları
+                                    @else
+                                        Ürünler
+                                    @endif
+                                </h1>
                             </div>
                             <div class="breadcrumbs">
                                 <a href="{{ route('home') }}">Ana Sayfa</a><span class="delimiter"></span>
-                                @if($selected_category)
+                                @if($search_query)
+                                <a href="{{ route('products') }}">Ürünler</a><span class="delimiter"></span>"{{ $search_query }}" arama sonuçları
+                                @elseif($selected_category)
                                 <a href="{{ route('products') }}">Ürünler</a><span class="delimiter"></span>{{ \App\ProductCategory::find($selected_category)->name ?? '' }}
                                 @else
                                 Ürünler
@@ -29,15 +37,19 @@
                     <div id="content" class="site-content" role="main">
                         <div class="section-padding">
                             <div class="section-container p-l-r">
-                                <div class="row">
+                                <div class="row"></div>
                                     <div
                                         class="col-xl-12 col-lg-12 col-md-12 col-12 products-column">
                                         <div class="products-topbar clearfix">
                                             <div class="products-topbar-left">
                                                 <div class="products-count">
-                                                    Toplam {{ $products->count() }} ürün gösteriliyor
-                                                    @if($selected_category)
-                                                    - {{ \App\ProductCategory::find($selected_category)->name ?? '' }} kategorisi
+                                                    @if($search_query)
+                                                        "{{ $search_query }}" için {{ $products->count() }} sonuç bulundu
+                                                    @else
+                                                        Toplam {{ $products->count() }} ürün gösteriliyor
+                                                        @if($selected_category)
+                                                        - {{ \App\ProductCategory::find($selected_category)->name ?? '' }} kategorisi
+                                                        @endif
                                                     @endif
                                                 </div>
                                             </div>
@@ -764,7 +776,7 @@
                 role="search"
                 method="get"
                 class="search-from ajax-search"
-                action="">
+                action="{{ route('products') }}">
                 <a href="#" class="search-close"></a>
                 <div class="search-box">
                     <button id="searchsubmit" class="btn" type="submit">
@@ -773,21 +785,78 @@
                     <input
                         type="text"
                         autocomplete="off"
-                        value=""
-                        name="s"
+                        value="{{ request('search') }}"
+                        name="search"
                         class="input-search s"
-                        placeholder="Ara..." />
+                        placeholder="Ürün ara..." />
                 </div>
             </form>
         </div>
     </div>
 
-    <!-- Wishlist -->
 
-
-
-
-
+    <!-- Quickview -->
+    <div class="quickview-popup">
+        <div id="quickview-container">
+            <div class="quickview-container">
+                <a href="#" class="quickview-close"></a>
+                <div class="quickview-notices-wrapper"></div>
+                <div class="product single-product product-type-simple">
+                    <div class="product-detail">
+                        <div class="row">
+                            <div class="img-quickview">
+                                <div class="product-images-slider">
+                                    <div id="quickview-slick-carousel">
+                                        <div class="images">
+                                            <div class="scroll-image">
+                                                <div class="slick-wrap">
+                                                    <div
+                                                        class="slick-sliders image-additional"
+                                                        data-dots="true"
+                                                        data-columns4="1"
+                                                        data-columns3="1"
+                                                        data-columns2="1"
+                                                        data-columns1="1"
+                                                        data-columns="1"
+                                                        data-nav="true">
+                                                        <div class="img-thumbnail slick-slide">
+                                                            <a
+                                                                href="media/product/3.jpg"
+                                                                class="image-scroll"
+                                                                title="">
+                                                                <img
+                                                                    width="900"
+                                                                    height="900"
+                                                                    src="media/product/3.jpg"
+                                                                    alt="" />
+                                                            </a>
+                                                        </div>
+                                                        <div class="img-thumbnail slick-slide">
+                                                            <a
+                                                                href="media/product/3-2.jpg"
+                                                                class="image-scroll"
+                                                                title="">
+                                                                <img
+                                                                    width="900"
+                                                                    height="900"
+                                                                    src="media/product/3-2.jpg"
+                                                                    alt="" />
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
 
     <!-- Page Loader -->
     <div class="page-preloader">

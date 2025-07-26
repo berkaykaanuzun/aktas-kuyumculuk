@@ -111,9 +111,19 @@ class FrontController extends Controller
             $query->where('product_category_id', $request->category);
         }
 
+        // Arama filtresi
+        if ($request->has('search') && $request->search) {
+            $search = $request->search;
+            $query->where(function($q) use ($search) {
+                $q->where('title', 'LIKE', '%' . $search . '%')
+                  ->orWhere('description', 'LIKE', '%' . $search . '%');
+            });
+        }
+
         $this->data['products'] = $query->get();
         $this->data['categories'] = ProductCategory::orderBy('name')->get();
         $this->data['selected_category'] = $request->category;
+        $this->data['search_query'] = $request->search;
 
         return view('products.index', $this->data);
     }

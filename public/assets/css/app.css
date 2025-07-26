@@ -35381,3 +35381,12 @@ footer p {
 .pb-1 {
     padding-bottom: 1rem !important;
 }
+
+/* Mobile Menu Close Button Text Hide */
+#remove-megamenu {
+    font-size: 0 !important;
+}
+
+#remove-megamenu:after {
+    font-size: 25px !important;
+}

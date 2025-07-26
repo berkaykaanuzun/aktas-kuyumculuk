@@ -7,3 +7,4 @@
 
     <!-- Site Scripts -->
     <script src="{{ asset('assets/js/app.js') }}"></script>
+    <script src="{{ asset('assets/js/mobile-menu.js') }}"></script>

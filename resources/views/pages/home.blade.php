@@ -173,13 +173,13 @@
                                                     data-columns="5">
                                                     @php
                                                     try {
-                                                        $categories = \App\ProductCategory::orderBy('name')->get();
+                                                    $categories = \App\ProductCategory::orderBy('name')->get();
                                                     } catch(Exception $e) {
-                                                        $categories = collect([]);
+                                                    $categories = collect([]);
                                                     }
-                                                @endphp
-                                                @foreach($categories as $category)
-                                                <div class="item item-product-cat slick-slide">
+                                                    @endphp
+                                                    @foreach($categories as $category)
+                                                    <div class="item item-product-cat slick-slide">
                                                         <div class="item-product-cat-content">
                                                             <a href="{{ route('products', ['category' => $category->id]) }}">
                                                                 <div class="item-image animation-horizontal">
@@ -205,7 +205,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                @endforeach
+                                                    @endforeach
                                                 </div>
                                             </div>
                                         </div>
@@ -422,7 +422,7 @@
                 role="search"
                 method="get"
                 class="search-from ajax-search"
-                action="">
+                action="{{ route('products') }}">
                 <a href="#" class="search-close"></a>
                 <div class="search-box">
                     <button id="searchsubmit" class="btn" type="submit">
@@ -431,10 +431,10 @@
                     <input
                         type="text"
                         autocomplete="off"
-                        value=""
-                        name="s"
+                        value="{{ request('search') }}"
+                        name="search"
                         class="input-search s"
-                        placeholder="Ara..." />
+                        placeholder="Ürün ara..." />
                 </div>
             </form>
         </div>

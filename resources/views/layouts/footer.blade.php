@@ -95,7 +95,7 @@
                                         </li>
                                         <li>
                                             <span class="text-white fw-bold">Email:</span>
-                                            <a href="mailto:{{ setting('iletisim.email') }}">{{ setting('iletisim.email') }}</a>
+                                            <a href="mailto:{{ setting('iletisim.email') }}">{{ setting('iletisim.e-mail') }}</a>
                                         </li>
                                     </ul>
                                 </div>

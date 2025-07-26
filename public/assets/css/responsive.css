@@ -411,8 +411,7 @@
     -webkit-transition: all .5s ease-in-out 0s;
     transition: all .5s ease-in-out 0s;
   }
-  .site-mobile-navigation.active,
-  .site-mobile-vertical.active {
+  .site-mobile-navigation.active {
     visibility: visible;
     -webkit-transform: translateZ(0);
     transform: translateZ(0);
@@ -626,7 +625,7 @@
     -webkit-transform: translate3d(280px,0,0);
     transform: translate3d(280px,0,0);
   }
-  .site-mobile-vertical .remove-verticalmenu {
+  .site-mobile-vertical {
     display: block;
     padding: 0;
     background: #000;
@@ -637,7 +636,7 @@
     font-size: 13px;
     font-family: Barlow Semi Condensed;
   }
-  .site-mobile-vertical .remove-verticalmenu:after {
+  .site-mobile-vertical {
     content: "\4d";
     font-family: eleganticons;
     color: #fff;
