@@ -44,15 +44,17 @@
                                             <div class="products-topbar-left">
                                                 <div class="products-count">
                                                     @if($search_query)
-                                                        "{{ $search_query }}" için {{ $products->count() }} sonuç bulundu
+                                                        "{{ $search_query }}" için {{ $products->total() }} sonuç bulundu
+                                                        ({{ $products->firstItem() }}-{{ $products->lastItem() }} arası gösteriliyor)
                                                     @else
-                                                        Toplam {{ $products->count() }} ürün gösteriliyor
+                                                        Toplam {{ $products->total() }} ürün
                                                         @if($selected_category)
                                                         - {{ \App\ProductCategory::find($selected_category)->name ?? '' }} kategorisi
                                                         @endif
+                                                        ({{ $products->firstItem() }}-{{ $products->lastItem() }} arası gösteriliyor)
                                                     @endif
                                                 </div>
-                                            </div>
+                                                                                        </div>
                                         </div>
 
                                         <div class="tab-content">
@@ -67,6 +69,11 @@
                                                             <div
                                                                 class="products-entry clearfix product-wapper">
                                                                 <div class="products-thumb">
+                                                                    @if($product->created_at->diffInDays(now()) <= 30)
+                                                                    <div class="product-lable">
+                                                                        <div class="hot">YENİ</div>
+                                                                    </div>
+                                                                    @endif
                                                                     <a href="{{ route('product_details', $product->slug) }}">
                                                                         <img
                                                                             width="1000"
@@ -724,13 +731,13 @@
                                             </div>
                                         </div>
 
-                                        @if(method_exists($products, 'hasPages') && $products->hasPages())
+                                        @if($products->hasPages())
                                         <nav class="pagination">
                                             <ul class="page-numbers">
                                                 @if($products->onFirstPage())
-                                                <li><span class="prev page-numbers disabled">Önceki</span></li>
+                                                <li><a href="javascript:void(0)" class="prev page-numbers disabled">Geri</a></li>
                                                 @else
-                                                <li><a class="prev page-numbers" href="{{ $products->previousPageUrl() }}">Önceki</a></li>
+                                                <li><a class="prev page-numbers" href="{{ $products->previousPageUrl() }}">Geri</a></li>
                                                 @endif
 
                                                 @foreach($products->getUrlRange(1, $products->lastPage()) as $page => $url)
@@ -742,9 +749,9 @@
                                                 @endforeach
 
                                                 @if($products->hasMorePages())
-                                                <li><a class="next page-numbers" href="{{ $products->nextPageUrl() }}">Sonraki</a></li>
+                                                <li><a class="next page-numbers" href="{{ $products->nextPageUrl() }}">İleri</a></li>
                                                 @else
-                                                <li><span class="next page-numbers disabled">Sonraki</span></li>
+                                                <li><a href="javascript:void(0)" class="next page-numbers disabled">İleri</a></li>
                                                 @endif
                                             </ul>
                                         </nav>

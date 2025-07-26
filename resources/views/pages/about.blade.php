@@ -16,7 +16,7 @@
                                 <h1 class="text-title-heading">Kurumsal</h1>
                             </div>
                             <div class="breadcrumbs">
-                                <a href="index.html">Ana Sayfa</a><span class="delimiter"></span>Kurumsal
+                                <a href="/">Ana Sayfa</a><span class="delimiter"></span>Kurumsal
                             </div>
                         </div>
                     </div>

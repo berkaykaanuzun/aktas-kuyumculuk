@@ -134,6 +134,7 @@
                                     </div>
                                 </div>
                             </div>
+                            @if(isset($related_products) && $related_products->count() > 0)
                             <div class="product-related">
                                 <div class="section-padding">
                                     <div class="section-container p-l-r">
@@ -154,39 +155,48 @@
                                                         data-columns1="3"
                                                         data-columns1440="4"
                                                         data-columns="4">
-                                                        @php
-                                                        try {
-                                                        $related_products = \App\Product::where('id', '!=', $product->id)
-                                                        ->where('product_category_id', $product->product_category_id)
-                                                        ->orderBy('created_at', 'desc')
-                                                        ->take(4)
-                                                        ->get();
-
-                                                        // Eğer aynı kategoride ürün yoksa, genel ürünlerden al
-                                                        if($related_products->count() == 0) {
-                                                        $related_products = \App\Product::where('id', '!=', $product->id)
-                                                        ->orderBy('created_at', 'desc')
-                                                        ->take(4)
-                                                        ->get();
-                                                        }
-                                                        } catch(Exception $e) {
-                                                        $related_products = collect([]);
-                                                        }
-                                                        @endphp
                                                         @foreach($related_products as $related_product)
                                                         <div class="item-product slick-slide">
                                                             <div class="items">
                                                                 <div
                                                                     class="products-entry clearfix product-wapper">
                                                                     <div class="products-thumb">
-                                                                        <a href="{{ route('product_details', $related_product->slug) }}">
-                                                                            <img
-                                                                                width="600"
-                                                                                height="600"
-                                                                                src="{{ Voyager::image($related_product->image) }}"
-                                                                                class="post-image"
-                                                                                alt="{{ $related_product->title ?? $related_product->name }}" />
-                                                                        </a>
+                                                                        @if($related_product->created_at->diffInDays(now()) <= 30)
+                                                                        <div class="product-lable">
+                                                                            <div class="hot">YENİ</div>
+                                                                        </div>
+                                                                        @endif
+                                                                        <div class="product-thumb-hover">
+                                                                            <a href="{{ route('product_details', $related_product->slug) }}">
+                                                                                @if($related_product->image)
+                                                                                <img
+                                                                                    width="600"
+                                                                                    height="600"
+                                                                                    src="{{ Voyager::image($related_product->image) }}"
+                                                                                    class="post-image"
+                                                                                    alt="{{ $related_product->title ?? $related_product->name }}" />
+                                                                                <img
+                                                                                    width="600"
+                                                                                    height="600"
+                                                                                    src="{{ Voyager::image($related_product->image) }}"
+                                                                                    class="hover-image back"
+                                                                                    alt="{{ $related_product->title ?? $related_product->name }}" />
+                                                                                @else
+                                                                                <img
+                                                                                    width="600"
+                                                                                    height="600"
+                                                                                    src="{{ asset('media/product/1.jpg') }}"
+                                                                                    class="post-image"
+                                                                                    alt="{{ $related_product->title ?? $related_product->name }}" />
+                                                                                <img
+                                                                                    width="600"
+                                                                                    height="600"
+                                                                                    src="{{ asset('media/product/1.jpg') }}"
+                                                                                    class="hover-image back"
+                                                                                    alt="{{ $related_product->title ?? $related_product->name }}" />
+                                                                                @endif
+                                                                            </a>
+                                                                        </div>
                                                                     </div>
                                                                     <div class="products-content">
                                                                         <div class="contents text-center">
@@ -199,12 +209,6 @@
                                                             </div>
                                                         </div>
                                                         @endforeach
-                                                        @if($related_products->count() == 0)
-                                                        <div class="col-12 text-center">
-                                                            <p>Henüz benzer ürün bulunmamaktadır.</p>
-                                                        </div>
-                                                        @endif
-
                                                     </div>
                                                 </div>
                                             </div>
@@ -212,6 +216,7 @@
                                     </div>
                                 </div>
                             </div>
+                            @endif
                         </div>
                     </div>
                     <!-- #content -->

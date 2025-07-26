@@ -16,7 +16,7 @@
                                 <h1 class="text-title-heading">İLETİŞİM</h1>
                             </div>
                             <div class="breadcrumbs">
-                                <a href="index.html">ANA SAYFA</a><span class="delimiter"></span>İLETİŞİM
+                                <a href="/">ANA SAYFA</a><span class="delimiter"></span>İLETİŞİM
                             </div>
                         </div>
                     </div>

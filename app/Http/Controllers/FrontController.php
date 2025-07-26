@@ -104,7 +104,7 @@ class FrontController extends Controller
     {
         $this->data['meta']['title'] = 'Ürünler';
 
-        $query = Product::orderBy('created_at', 'desc');
+                $query = Product::orderBy('created_at', 'desc');
 
         // Kategori filtresi
         if ($request->has('category') && $request->category) {
@@ -120,7 +120,7 @@ class FrontController extends Controller
             });
         }
 
-        $this->data['products'] = $query->get();
+        $this->data['products'] = $query->paginate(12);
         $this->data['categories'] = ProductCategory::orderBy('name')->get();
         $this->data['selected_category'] = $request->category;
         $this->data['search_query'] = $request->search;
@@ -133,14 +133,30 @@ class FrontController extends Controller
         $this->data['product'] = \App\Product::where('slug', $slug)->firstOrFail();
         $this->data['meta']['title'] = $this->data['product']->name ?? $this->data['product']->title ?? 'Ürün Detayı';
         $this->data['meta']['description'] = $this->data['product']->description ?? '';
-        // Eğer ürün kategorileri varsa:
-        // $this->data['product_categories'] = \App\ProductCategory::orderBy('name')->get();
-        // $this->data['related_products'] = $this->data['product']->category
-        //     ->products()
-        //     ->where('id', '!=', $this->data['product']->id)
-        //     ->orderBy('created_at', 'desc')
-        //     ->take(3)
-        //     ->get();
+
+        // Benzer ürünleri getir
+        $related_products = \App\Product::where('id', '!=', $this->data['product']->id)
+            ->when($this->data['product']->product_category_id, function($query) {
+                return $query->where('product_category_id', $this->data['product']->product_category_id);
+            })
+            ->orderBy('created_at', 'desc')
+            ->take(8)
+            ->get();
+
+        // Eğer aynı kategoride yeterli ürün yoksa, diğer ürünlerden de ekle
+        if ($related_products->count() < 8) {
+            $remaining_count = 8 - $related_products->count();
+            $additional_products = \App\Product::where('id', '!=', $this->data['product']->id)
+                ->whereNotIn('id', $related_products->pluck('id'))
+                ->orderBy('created_at', 'desc')
+                ->take($remaining_count)
+                ->get();
+
+            $related_products = $related_products->merge($additional_products);
+        }
+
+        $this->data['related_products'] = $related_products;
+
         return view('products.details', $this->data);
     }
 
