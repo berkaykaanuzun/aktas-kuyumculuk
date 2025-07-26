@@ -45,7 +45,7 @@
                                                     </h2>
                                                     <a
                                                         class="button-slider button button-white button-outline thick-border"
-                                                        href="urunler.html">Ürünlerimizi İnceleyin</a>
+                                                        href="/urunler">Ürünlerimizi İnceleyin</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -66,7 +66,7 @@
                                                     <div class="bg-banner">
                                                         <div class="banner-wrapper banners">
                                                             <div class="banner-image">
-                                                                <a href="shop-grid-left.html">
+                                                                <a href="/urunler">
                                                                     <img
                                                                         width="630"
                                                                         height="457"
@@ -80,7 +80,7 @@
                                                                         <h3 class="title-banner">
                                                                             Yeni Koleksiyon
                                                                         </h3>
-                                                                        <a class="button" href="urunler.html">İncele</a>
+                                                                        <a class="button" href="/urunler">İncele</a>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -93,7 +93,7 @@
                                                     <div class="bg-banner">
                                                         <div class="banner-wrapper banners">
                                                             <div class="banner-image">
-                                                                <a href="shop-grid-left.html">
+                                                                <a href="/urunler">
                                                                     <img
                                                                         width="450"
                                                                         height="457"
@@ -109,7 +109,7 @@
                                                                         </h3>
                                                                         <a
                                                                             class="button center"
-                                                                            href="urunler.html">İncele</a>
+                                                                            href="/urunler">İncele</a>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -122,7 +122,7 @@
                                                     <div class="bg-banner">
                                                         <div class="banner-wrapper banners">
                                                             <div class="banner-image">
-                                                                <a href="shop-grid-left.html">
+                                                                <a href="/urunler">
                                                                     <img
                                                                         width="630"
                                                                         height="457"
@@ -136,7 +136,7 @@
                                                                         <h3 class="title-banner">
                                                                             Özel Koleksiyon
                                                                         </h3>
-                                                                        <a class="button" href="urunler.html">İncele</a>
+                                                                        <a class="button" href="/urunler">İncele</a>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -334,7 +334,7 @@
                                                     <div class="bg-banner">
                                                         <div class="banner-wrapper banners">
                                                             <div class="banner-image">
-                                                                <a href="shop-grid-left.html">
+                                                                <a href="/urunler">
                                                                     <img
                                                                         width="856"
                                                                         height="496"
@@ -353,7 +353,7 @@
                                                                         </div>
                                                                         <a
                                                                             class="button button-outline thick-border border-white button-arrow"
-                                                                            href="urunler.html">Keşfet</a>
+                                                                            href="/urunler">Keşfet</a>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -366,7 +366,7 @@
                                                     <div class="bg-banner">
                                                         <div class="banner-wrapper banners">
                                                             <div class="banner-image">
-                                                                <a href="shop-grid-left.html">
+                                                                <a href="/urunler">
                                                                     <img
                                                                         width="856"
                                                                         height="496"
@@ -385,7 +385,7 @@
                                                                         </div>
                                                                         <a
                                                                             class="button button-outline thick-border border-white button-arrow"
-                                                                            href="urunler.html">Keşfet</a>
+                                                                            href="/urunler">Keşfet</a>
                                                                     </div>
                                                                 </div>
                                                             </div>

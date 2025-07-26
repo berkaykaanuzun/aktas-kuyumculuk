@@ -99,23 +99,54 @@
                                                 </div>
                                             </div>
                                             <div class="block-content">
+                                                @if(session('success'))
+                                                <div class="alert alert-success">
+                                                    {{ session('success') }}
+                                                </div>
+                                                @endif
+                                                @if(session('error'))
+                                                <div class="alert alert-danger">
+                                                    {{ session('error') }}
+                                                </div>
+                                                @endif
                                                 <form
-                                                    action=""
+                                                    action="{{ route('contact.send') }}"
                                                     method="post"
                                                     class="contact-form"
                                                     novalidate="novalidate">
+                                                    @csrf
                                                     <div class="contact-us-form">
                                                         <div class="row">
-                                                            <div class="col-sm-12 col-md-6">
+                                                            <div class="col-sm-12">
                                                                 <label class="required">Ad Soyad</label><br />
                                                                 <span class="form-control-wrap">
                                                                     <input
                                                                         type="text"
                                                                         name="name"
-                                                                        value=""
+                                                                        value="{{ old('name') }}"
                                                                         size="40"
-                                                                        class="form-control"
+                                                                        class="form-control @error('name') is-invalid @enderror"
                                                                         aria-required="true" />
+                                                                    @error('name')
+                                                                    <span class="invalid-feedback">{{ $message }}</span>
+                                                                    @enderror
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-sm-12 col-md-6">
+                                                                <label class="required">Telefon</label><br />
+                                                                <span class="form-control-wrap">
+                                                                    <input
+                                                                        type="tel"
+                                                                        name="phone"
+                                                                        value="{{ old('phone') }}"
+                                                                        size="40"
+                                                                        class="form-control @error('phone') is-invalid @enderror"
+                                                                        aria-required="true" />
+                                                                    @error('phone')
+                                                                        <span class="invalid-feedback">{{ $message }}</span>
+                                                                    @enderror
                                                                 </span>
                                                             </div>
                                                             <div class="col-sm-12 col-md-6">
@@ -124,10 +155,13 @@
                                                                     <input
                                                                         type="email"
                                                                         name="email"
-                                                                        value=""
+                                                                        value="{{ old('email') }}"
                                                                         size="40"
-                                                                        class="form-control"
+                                                                        class="form-control @error('email') is-invalid @enderror"
                                                                         aria-required="true" />
+                                                                    @error('email')
+                                                                    <span class="invalid-feedback">{{ $message }}</span>
+                                                                    @enderror
                                                                 </span>
                                                             </div>
                                                         </div>
@@ -139,8 +173,11 @@
                                                                         name="message"
                                                                         cols="40"
                                                                         rows="10"
-                                                                        class="form-control"
-                                                                        aria-required="true"></textarea>
+                                                                        class="form-control @error('message') is-invalid @enderror"
+                                                                        aria-required="true">{{ old('message') }}</textarea>
+                                                                    @error('message')
+                                                                    <span class="invalid-feedback">{{ $message }}</span>
+                                                                    @enderror
                                                                 </span>
                                                             </div>
                                                         </div>

@@ -16,7 +16,7 @@
                                 <h1 class="text-title-heading">{{ $product->title ?? $product->name ?? 'Ürün Detayı' }}</h1>
                             </div>
                             <div class="breadcrumbs">
-                                <a href="{{ route('home') }}">Ana Sayfa</a><span class="delimiter"></span><a href="{{ route('products') }}">Ürünler</a><span class="delimiter"></span>{{ $product->title ?? $product->name ?? 'Ürün Detayı' }}
+                                <a href="{{ route('home') }}">Ana Sayfa</a><span class="delimiter"></span><a href="{{ route('products') }}">Ürünler</a>@if($product->category)<span class="delimiter"></span><a href="{{ route('products', ['category' => $product->category->id]) }}">{{ $product->category->name }}</a>@endif<span class="delimiter"></span>{{ $product->title ?? $product->name ?? 'Ürün Detayı' }}
                             </div>
                         </div>
                     </div>

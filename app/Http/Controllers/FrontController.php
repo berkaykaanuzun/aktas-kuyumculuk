@@ -58,32 +58,39 @@ class FrontController extends Controller
     }
 
 
-    // public function send(Request $request)
-    // {
-    //     $validatedData = $request->validate([
-    //         'name' => 'required|string|max:255',
-    //         'email' => 'required|email|max:255',
-    //         'phone' => 'required|string|max:20',
-    //         'subject' => 'required|string|max:255',
-    //         'message' => 'required|string',
-    //     ]);
+    public function send(Request $request)
+    {
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'phone' => 'required|string|max:20',
+            'message' => 'required|string',
+        ]);
 
-    //     // Veritabanına kaydet
-    //     ContactForm::create($validatedData);
+        try {
+            // Direkt mail gönder - veritabanına kaydetmeden
+            $mailData = [
+                'name' => $validatedData['name'],
+                'email' => $validatedData['email'],
+                'phone' => $validatedData['phone'],
+                'message' => $validatedData['message'],
+                'ip_address' => $request->ip(),
+                'user_agent' => $request->userAgent(),
+                'submitted_at' => now()->format('d.m.Y H:i:s')
+            ];
 
-    //     try {
-    //         // Mail gönder
-    //         Mail::to('snglu2840@gmail.com')->send(new ContactFormMail($validatedData));
+            // Mail gönder
+            Mail::to('berkaykaanuzun@gmail.com')->send(new ContactFormMail($mailData));
 
-    //         // Başarı mesajı
-    //         session()->flash('success', 'İşlem başarılı, mesajınız iletildi ilginiz için teşekkür ederiz');
-    //     } catch (Exception $e) {
-    //         // Hata mesajı
-    //         session()->flash('error', 'Mail gönderilemedi: ' . $e->getMessage());
-    //     }
+            // Başarı mesajı
+            session()->flash('success', 'Mesajınız başarıyla gönderildi. En kısa sürede size geri döneceğiz.');
+        } catch (\Exception $e) {
+            // Hata mesajı
+            session()->flash('error', 'Mesaj gönderilemedi. Lütfen daha sonra tekrar deneyin.');
+        }
 
-    //     return back();
-    // }
+        return back();
+    }
 
     public function blogs()
     {
