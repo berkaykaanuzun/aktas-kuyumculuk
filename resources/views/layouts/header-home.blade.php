@@ -19,8 +19,8 @@
                                 <img
                                     width="400"
                                     height="79"
-                                    src="media/logo.png"
-                                    alt="Aktaş Kuyumculuk – Kaliteli Takı ve Mücevher" />
+                                    src="{{ Voyager::image(setting('site.logo', 'media/logo.png')) }}"
+                                    alt="{{ setting('site.title', 'Aktaş Kuyumculuk') }}" />
                             </a>
                         </div>
                     </div>
@@ -52,8 +52,8 @@
                                     <img
                                         width="400"
                                         height="140"
-                                        src="{{ asset('media/logo.png') }}"
-                                        alt="Aktaş Kuyumculuk – Kaliteli Takı ve Mücevher" />
+                                        src="{{ Voyager::image(setting('site.logo', 'media/logo.png')) }}"
+                                        alt="{{ setting('site.title', 'Aktaş Kuyumculuk') }}" />
                                 </a>
                             </div>
                         </div>

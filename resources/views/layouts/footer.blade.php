@@ -1,10 +1,10 @@
 @php
-    $footerBgImage = asset('media/footer.jpg');
+$footerBgImage = asset('media/footer.jpg');
 @endphp
 <footer
     id="site-footer"
     class="site-footer background four-columns m-t-0"
-    style="background-image: url('{{ $footerBgImage }}')">
+    style="background-image: url('{{ $footerBgImage }}') ; background-size: cover;  background-repeat: no-repeat;">
     <div class="footer">
         <div class="section-padding">
             <div class="section-container">
@@ -17,8 +17,8 @@
                                         <img
                                             width="150"
                                             height="auto"
-                                            src="{{ asset('media/logo.png') }}"
-                                            alt="AKTAŞ KUYUMCULUK" />
+                                            src="{{ Voyager::image(setting('site.logo', 'media/logo.png')) }}"
+                                            alt="{{ setting('site.title', 'AKTAŞ KUYUMCULUK') }}" />
                                     </a>
                                 </div>
                                 <div class="block-content footer-text text-white">
@@ -58,11 +58,11 @@
                                 <div class="block-content">
                                     <ul>
                                         @php
-                                            try {
-                                                $recent_products = \App\Product::orderBy('created_at', 'desc')->take(5)->get();
-                                            } catch(Exception $e) {
-                                                $recent_products = collect([]);
-                                            }
+                                        try {
+                                        $recent_products = \App\Product::orderBy('created_at', 'desc')->take(5)->get();
+                                        } catch(Exception $e) {
+                                        $recent_products = collect([]);
+                                        }
                                         @endphp
                                         @foreach($recent_products as $product)
                                         <li>

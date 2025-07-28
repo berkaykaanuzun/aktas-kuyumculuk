@@ -2863,7 +2863,7 @@ input[type="text"] {
     border-bottom-style: solid;
 }
 [class~="page-preloader"] [class~="loader"] div {
-    border-left-color: #000;
+    border-left-color: #fff;
 }
 [class~="hot"] {
     position: relative;
@@ -2930,7 +2930,7 @@ button:focus {
 }
 [class~="pagination"] ul li a:hover,
 [class~="page-preloader"] [class~="loader"] div {
-    border-bottom-color: #000;
+    border-bottom-color: #fff;
 }
 [class~="onsale"] {
     text-align: center;
@@ -2976,7 +2976,7 @@ input[type="number"] {
 }
 [class~="page-preloader"] [class~="loader"] div,
 [class~="pagination"] ul li a:hover {
-    border-right-color: #000;
+    border-right-color: #fff;
 }
 [class~="onsale"] {
     padding-right: 5.25pt;
@@ -3011,7 +3011,7 @@ input[type="number"] {
 }
 [class~="pagination"] ul li a:hover,
 [class~="page-preloader"] [class~="loader"] div {
-    border-top-color: #000;
+    border-top-color: #fff;
 }
 [class~="quantity"] [class~="minus"] {
     text-decoration: none;
@@ -3430,7 +3430,7 @@ textarea,
     border-bottom-color: #e5e5e5;
 }
 .page-preloader {
-    background-color: #fff;
+    background-color: #560b25;
 }
 .page-preloader {
     z-index: 9999999;
@@ -35405,4 +35405,8 @@ footer p {
 }
 .pb-1 {
     padding-bottom: 1rem !important;
+}
+html,
+body {
+    overflow-x: hidden !important;
 }
