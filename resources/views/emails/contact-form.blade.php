@@ -50,7 +50,7 @@
 <body>
     <div class="header">
         <div style="text-align: center; margin-bottom: 20px;">
-            <img src="{{ config('app.url') }}/media/logo.png" alt="Aktaş Kuyumculuk" style="max-width: 200px; height: auto;">
+            <img src="https://aktaskuyumculuknovaland.com/storage/settings/July2025/87UbIgR6qi6njrci6Ze6.png" alt="Aktaş Kuyumculuk" style="max-width: 200px; height: auto;">
         </div>
         <h2>Yeni İletişim Formu Mesajı</h2>
         <p>Web sitenizden yeni bir iletişim formu mesajı alındı.</p>

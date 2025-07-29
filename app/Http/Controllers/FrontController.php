@@ -80,11 +80,11 @@ class FrontController extends Controller
             ];
 
             // Mail gönder
-            Mail::to('berkaykaanuzun@gmail.com')->send(new ContactFormMail($mailData));
+            Mail::to('info@aktaskuyumculuknovaland.com')->send(new ContactFormMail($mailData));
 
             // Başarı mesajı
             session()->flash('success', 'Mesajınız başarıyla gönderildi. En kısa sürede size geri döneceğiz.');
-        } catch (\Exception $e) {
+                } catch (\Exception $e) {
             // Hata mesajı
             session()->flash('error', 'Mesaj gönderilemedi. Lütfen daha sonra tekrar deneyin.');
         }
